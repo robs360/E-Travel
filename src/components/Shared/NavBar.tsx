@@ -1,14 +1,16 @@
+'use client'
 import Image from "next/image"
 import logo from '../../assets/logo2.jpeg'
 import { FaPhone } from "react-icons/fa"
 import NavLink from "./NavLink"
 import NavMenu from "./NavMenu"
-
+import { motion } from "framer-motion";
 
 const NavBar = () => {
 
     return (
-        <div className="flex items-center space-x-7 justify-around py-3 shadow">
+        <motion.div initial={{opacity:0, y:-30}} animate={{opacity:1 ,y:0}}
+        transition={{delay:0.3, duration:0.4}} className="flex items-center space-x-7 justify-around py-3 shadow">
             <div className="flex items-center">
                 <Image src={logo} width={50} height={20}  alt="LOGO"></Image>
                 <h1 className="font-black text-xl md:text-2xl">E-Ticket</h1>
@@ -23,7 +25,7 @@ const NavBar = () => {
                 </div>
             </button>
             <NavMenu></NavMenu>
-        </div>
+        </motion.div>
     )
 }
 export default NavBar

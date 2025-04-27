@@ -4,7 +4,7 @@ import { FaEnvelope, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa"
 
 const Footer = () => {
     return (
-        <div className="px-5 py-10 flex gap-4 items-center justify-evenly w-full min-h-[310px] mt-8 rounded-tl-[60px]" style={{
+        <div className="px-5 py-10 flex flex-col lg:flex-row gap-y-10 gap-4 items-center justify-evenly w-full min-h-[310px] mt-8 rounded-tl-[60px]" style={{
             background: "linear-gradient(135deg, #000000 0%, #222222 40%, #555555 84%, #888888 100%)",
         }}>
             <div className="max-w-[356px]">

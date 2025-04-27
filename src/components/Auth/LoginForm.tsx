@@ -11,7 +11,7 @@ const LoginForm=()=>{
         <motion.div  initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }} className="bg-white p-8 rounded-2xl shadow-2xl w-[360px] md:w-[475px] lg:w-[420px] mx-auto space-y-6">
-         <div className="flex items-center space-x-4">
+         <div className="flex items-center ">
                 <Image src={logo} width={90} height={90} alt="logo" className=""></Image>
                 <div>
                     <h1 className="text-3xl font-bold text-gray-800">Login</h1>

@@ -40,7 +40,7 @@ const Search = () => {
 
                 </div>
                 <input type="date" className='mt-3' />
-                <Button className='mt-3 w-[280px] lg:w-[100px] text-[17px] h-[45px]'>Search</Button>
+                <Button className='mt-3 bg-black w-[280px] lg:w-[100px] text-[17px] h-[45px]'>Search</Button>
             </form>
         </div>
     )
