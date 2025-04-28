@@ -28,10 +28,10 @@ const DropDown = () => {
           <Button variant="ghost" className="p-0 rounded-full">
             <Image
               src={user}
-              width={32}
-              height={32}
+              width={36}
+              height={36}
               alt="User Avatar"
-              className="rounded-full border border-gray-300 hover:ring-2 hover:ring-primary transition-all"
+              className="rounded-full border border-gray-300 hover:ring-2 hover:ring-green-200 transition-all"
             />
           </Button>
         </DropdownMenuTrigger>

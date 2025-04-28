@@ -2,14 +2,16 @@
 import Image from "next/image"
 import menu from '../../assets/menu.png'
 import { useState } from "react"
-import { FaBus, FaHotel, FaPlus, FaTrain } from "react-icons/fa"
+import { FaPlus } from "react-icons/fa"
 import Link from "next/link"
 import { motion } from "motion/react"
 import { usePathname } from "next/navigation"
-import { Package } from "lucide-react"
+
+import { navLinks } from "./NavLink"
 const NavMenu = () => {
     const [open, setOpen] = useState(false)
     const path = usePathname()
+
     return (
         <div className="flex md:hidden">
             <button onClick={() => {
@@ -22,36 +24,17 @@ const NavMenu = () => {
                     } transition-all duration-700`}
             >
                 {
-                    open &&(<>
-                    <motion.div initial={{ opacity: 0, x: -10 }}
-                    animate={{ x: 10, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.5 }}>
-                    <Link href={'/'} className={`font-medium flex items-center text-[15px] ${path === '/' ? 'text-[#0dac53] border-2 border-green-400 px-4 py-1 rounded-[8px] w-[110px]' : 'text-orange-300'}`}><FaBus></FaBus> Bus</Link>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ x: 10, opacity: 1 }}
-                    transition={{ delay: 0.8, duration: 0.5 }}>
-                    <Link href={'/tarin'} className={`font-medium flex items-center text-[15px] ${path === '/train' ? 'text-[#0dac53] border-2 border-green-400  px-4 py-1 rounded-[8px] w-[100px]' : 'text-orange-300'}`}><FaTrain></FaTrain> Train</Link>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ x: 10, opacity: 1 }}
-                    transition={{ delay: 1.2, duration: 0.5 }}>
-                    <Link href={'/hotel-book'} className={`font-medium flex items-center text-[15px] ${path === '/hotel-book' ? 'text-[#0dac53] border-2 border-green-400  px-4 py-1 rounded-[8px] w-[100px]' : 'text-orange-300'}`}><FaHotel></FaHotel> Book Hotel</Link>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ x: 10, opacity: 1 }}
-                    transition={{ delay: 1.6, duration: 0.5 }}>
-                    <Link href={'/packages'} className={`font-medium flex items-center text-[15px] ${path === '/packages' ? 'text-[#0dac53] border-2 border-green-400  px-4 py-1 rounded-[8px] w-[100px]' : 'text-orange-300'}`}><Package></Package>Package</Link>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ x: 10, opacity: 1 }}
-                    transition={{ delay:2, duration: 0.5 }}>
-                    <Link href={'/login'} className={`font-medium flex items-center text-[15px] ${path === '/login' ? 'text-[#0dac53] border-2 border-green-400 px-4 py-1 rounded-[8px] w-[100px]' : 'text-orange-300'}`}>Login</Link>
-                </motion.div></>)
+                    open && (<>
+                        {
+                            navLinks.map((item: any, index: number) => <motion.div key={index}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ x: 10, opacity: 1 }}
+                                transition={{ delay: item.delay, duration: 0.5 }}>
+                                <Link href={item.href} className={`font-medium flex gap-x-1 items-center text-[15px] ${path === item.href ? 'text-[#0dac53] border-2 border-green-400  px-4 py-1 rounded-[8px] w-[100px]' : 'text-orange-300'}`}><item.icon className='size-5'></item.icon> 
+                                <span className="mt-[2px]">{item.label}</span> </Link>
+                            </motion.div>)
+                        }
+                    </>)
                 }
                 <button
                     onClick={() => {

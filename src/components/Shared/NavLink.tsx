@@ -1,25 +1,25 @@
 "use client"
-import { Package } from "lucide-react"
+import { NavLinkItem } from "@/types/types"
+import { Bus, Home, Hotel, Package } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { FaBus, FaHotel } from "react-icons/fa"
-import { Tsession } from "@/types/types"
-import DropDown from "../Shadcn/Dropdown"
-const NavLink = ({session}:{session:Tsession | null})=> {
+export const navLinks = [
+    { href: "/", label: "Home", icon: Home, delay: 0.6 },
+    { href: "/Bus", label: "Bus", icon: Bus, delay: 1 },
+    { href: "/hotel-book", label: "Book Hotel", icon: Hotel, delay: 1.4 },
+    { href: "/packages", label: "Packages", icon: Package, delay: 1.8 },
+];
+const NavLink = () => {
     const path = usePathname()
+
     return (
-        <div className="hidden md:flex space-x-4 md:space-x-6 items-center">
-            <Link className={`text-sm font-bold flex gap-x-1.5 items-center ${path === '/' ? 'text-[#0dac53] border-2 border-green-400 px-4 py-1 rounded-[8px]' : 'text-black'}`} href={'/'}> <span>
-               <FaBus ></FaBus> </span> Bus</Link>
-            <Link className={`text-sm font-bold flex items-center gap-x-1.5 ${path === '/hotel-book' ? 'text-[#0dac53] border-2 border-green-400 px-4 py-2 rounded-[8px]' : 'text-black'}`} href={'/hotel-book'}>
-            <span><FaHotel></FaHotel></span>Book Hotel</Link>
-            <Link className={`text-sm font-bold flex items-center gap-x-1.5 ${path === '/packages' ? 'text-[#0dac53] border-2 border-green-400 px-4 py-2 rounded-[8px]' : 'text-black'}`} href={'/packages'}>
-            <span><Package></Package> </span>Packages</Link>
+        <div className="hidden md:flex space-x-4 lg:space-x-6 items-center">
             {
-                !session?(
-                <Link className={`text-sm font-bold ${path === '/login' ? 'text-[#0dac53] border-2 border-green-400 px-4 py-2 rounded-[8px]' : 'text-black'}`} href={'/login'}>Login</Link>):(
-                    <DropDown></DropDown>
-                )
+                navLinks.map((item: NavLinkItem, index: number) => <Link key={index}
+                    className={`text-sm font-bold flex gap-x-1.5 items-center
+             ${path === item.href ? 'text-[#0dac53] border-2 border-green-400 px-3 py-1 rounded-[8px]'
+                            : 'text-black'}`} href={item.href}>
+                    {<item.icon className="size-5"></item.icon>} {item.label}</Link>)
             }
         </div>
     )
