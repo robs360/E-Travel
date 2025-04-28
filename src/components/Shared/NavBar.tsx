@@ -5,8 +5,8 @@ import { FaPhone } from "react-icons/fa"
 import NavLink from "./NavLink"
 import NavMenu from "./NavMenu"
 import { motion } from "framer-motion";
-
-const NavBar = () => {
+import { Tsession } from "@/types/types"
+const NavBar = ({session}:{session:Tsession | null}) => {
 
     return (
         <motion.div initial={{opacity:0, y:-30}} animate={{opacity:1 ,y:0}}
@@ -16,8 +16,8 @@ const NavBar = () => {
                 <h1 className="font-black text-xl md:text-2xl">E-Ticket</h1>
             </div>
 
-            <NavLink></NavLink>
-
+            <NavLink session={session}></NavLink>
+           
             <button>
                 <div className="px-3 text-[15px] py-1 flex items-center
             bg-orange-400 gap-x-1.5 rounded-2xl text-white font-medium">

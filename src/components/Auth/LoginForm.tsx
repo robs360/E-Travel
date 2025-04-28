@@ -1,4 +1,5 @@
 'use client'
+import { signIn } from "next-auth/react";
 import { motion } from "framer-motion";
 import logo from '../../assets/logo2.jpeg'
 import Image from "next/image";
@@ -6,7 +7,12 @@ import Link from "next/link";
 import { FaFacebook } from "react-icons/fa";
 import google from '../../assets/google.webp'
 import { Button } from "../ui/button";
+import { useForm } from "react-hook-form";
 const LoginForm=()=>{
+    const {register,handleSubmit}=useForm()
+    const onSubmit = (data: any) => {               // 2. create submit function
+        console.log(data);                            // form data will appear here
+      }
     return(
         <motion.div  initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -20,15 +26,15 @@ const LoginForm=()=>{
                     </p>
                 </div>
             </div>
-            <form action="" className="flex flex-col space-y-2">
+            <form onSubmit={handleSubmit(onSubmit)} action="" className="flex flex-col space-y-2">
                 <label>Email</label>
-                <input type="email" name="email" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
+                <input type="email" {...register("email")} name="email" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
                 <label>Password</label>
-                <input type="password" name="password" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
+                <input type="password" {...register("password")} name="password" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
                 <Button className="w-full mt-2 h-[44px]">Login</Button>
             </form>
             <div className="space-y-3">
-                <button
+            <button  onClick={()=>{signIn('facebook',{callbackUrl:'http://localhost:3000/'})}}
                     
                     className="flex items-center justify-center w-full h-[45px] border border-blue-500 rounded-md space-x-3 hover:bg-blue-50 transition"
                 >
@@ -36,7 +42,7 @@ const LoginForm=()=>{
                     <span className="font-medium text-blue-600">Continue with Facebook</span>
                 </button>
 
-                <button
+                <button  onClick={()=>{signIn('google',{callbackUrl:'http://localhost:3000/'})}}
                    
                     className="flex items-center justify-center w-full h-[45px] border border-gray-400 rounded-md space-x-3 hover:bg-gray-50 transition"
                 >
