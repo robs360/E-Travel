@@ -1,19 +1,66 @@
-"use client"
+"use client";
+import * as React from "react"
+import { useState } from "react";
+import road from '../../assets/road.png';
+import Image from "next/image";
+import { Button } from "../ui/button";
+import CalendarMode from "../Shadcn/Calender";
+
 
 const Search = () => {
+  const [selected, setSelected] = useState('');
+  const [selected2, setSelected2] = useState('');
+  const [date, setDate] = React.useState<Date>()
+  const onHandleClick=(e:any)=>{
+    e.preventDefault()
+    console.log(selected," ",selected2," ",date)
+    const counterData={
+    
+    }
+  }
+  return (
+    <div className="p-6 rounded-3xl bg-white max-w-5xl mx-auto shadow-2xl">
+      <div className="flex items-center space-x-2 mb-6">
+        <div className="w-4 h-4 rounded-full border-2 border-black"></div>
+        <h1 className="font-semibold text-lg text-gray-800">One Way Ticket</h1>
+      </div>
+      <form onSubmit={onHandleClick} className="flex flex-col gap-6 lg:flex-row items-center">
+     
+        <select
+          value={selected}
+          onChange={(e) => setSelected(e.target.value)}
+          className="px-4 py-3 text-[15px] h-[45px] w-full lg:w-[240px] text-gray-500 bg-white font-normal border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
+        >
+          <option value="" disabled>Select Departure</option>
+          <option value="chittagong">Chittagong</option>
+          <option value="sylhet">Sylhet</option>
+          <option value="coxsbazar">Cox's Bazar</option>
+        </select>
 
-    return (
-        <div className="p-4 py-5 rounded-2xl bg-white mx-auto shadow-2xl">
-            <div className="flex items-center space-x-1">
-                <div className="w-[14px] h-[14px] rounded-full border-2 border-black">
-
-                </div>
-                <h1 className="font-semibold">One Way</h1>
-            </div>
-            <form action="" className="flex flex-col gap-y-4 lg:gap-y-0 lg:flex-row space-x-7 mt-1 items-center">
-
-            </form>
+       
+        <div className="hidden lg:flex items-center">
+          <Image src={road} alt="Road Icon" width={35} height={35} className="opacity-80" />
         </div>
-    )
-}
-export default Search
+
+        
+        <select
+          value={selected2}
+          onChange={(e) => setSelected2(e.target.value)}
+          className="px-4 py-3 text-[15px] font-normal  h-[45px] w-full lg:w-[240px] text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
+        >
+          <option value="" disabled>Select Destination</option>
+          <option value="chittagong">Chittagong</option>
+          <option value="sylhet">Sylhet</option>
+          <option value="coxsbazar">Cox's Bazar</option>
+        </select>
+        <CalendarMode date={date} setDate={setDate}></CalendarMode>
+        
+        <Button className="w-full lg:w-[120px] h-[45px] bg-green-500 hover:bg-green-600 transition-all font-semibold text-white text-lg rounded-lg">
+          Search
+        </Button>
+      </form>
+    </div>
+  );
+};
+
+export default Search;

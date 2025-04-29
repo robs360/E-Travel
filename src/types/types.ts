@@ -11,3 +11,8 @@ export type NavLinkItem = {
     icon: LucideIcon;
     delay:number
   };
+
+  export type CalendarModeProps= {
+    date: Date | undefined;
+    setDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
+  }
