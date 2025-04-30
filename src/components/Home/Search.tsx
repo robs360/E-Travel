@@ -5,18 +5,22 @@ import road from '../../assets/road.png';
 import Image from "next/image";
 import { Button } from "../ui/button";
 import CalendarMode from "../Shadcn/Calender";
+import { getCounter } from "@/services/counter";
 
-
-const Search = () => {
-  const [selected, setSelected] = useState('');
-  const [selected2, setSelected2] = useState('');
+const Search = ({setInfo}:{setInfo: React.Dispatch<React.SetStateAction<any[]>>}) => {
+  const [from, setSelected] = useState('');
+  const [to, setSelected2] = useState('');
   const [date, setDate] = React.useState<Date>()
-  const onHandleClick=(e:any)=>{
+  const onHandleClick = async (e: any) => {
     e.preventDefault()
-    console.log(selected," ",selected2," ",date)
-    const counterData={
-    
+    console.log(from, to, date)
+    if (!date || !from || !to) {
+      return
     }
+   
+    const res = await getCounter(from, to, date)
+    console.log(res.data)
+    setInfo(res.data)
   }
   return (
     <div className="p-6 rounded-3xl bg-white max-w-5xl mx-auto shadow-2xl">
@@ -25,9 +29,9 @@ const Search = () => {
         <h1 className="font-semibold text-lg text-gray-800">One Way Ticket</h1>
       </div>
       <form onSubmit={onHandleClick} className="flex flex-col gap-6 lg:flex-row items-center">
-     
+
         <select
-          value={selected}
+          value={from}
           onChange={(e) => setSelected(e.target.value)}
           className="px-4 py-3 text-[15px] h-[45px] w-full lg:w-[240px] text-gray-500 bg-white font-normal border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
         >
@@ -37,14 +41,13 @@ const Search = () => {
           <option value="coxsbazar">Cox's Bazar</option>
         </select>
 
-       
+
         <div className="hidden lg:flex items-center">
           <Image src={road} alt="Road Icon" width={35} height={35} className="opacity-80" />
         </div>
 
-        
         <select
-          value={selected2}
+          value={to}
           onChange={(e) => setSelected2(e.target.value)}
           className="px-4 py-3 text-[15px] font-normal  h-[45px] w-full lg:w-[240px] text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
         >
@@ -54,8 +57,8 @@ const Search = () => {
           <option value="coxsbazar">Cox's Bazar</option>
         </select>
         <CalendarMode date={date} setDate={setDate}></CalendarMode>
-        
-        <Button className="w-full lg:w-[120px] h-[45px] bg-green-500 hover:bg-green-600 transition-all font-semibold text-white text-lg rounded-lg">
+
+        <Button type="submit" className="w-full lg:w-[120px] h-[45px] bg-green-600 hover:bg-green-600 transition-all font-semibold text-white rounded-lg">
           Search
         </Button>
       </form>

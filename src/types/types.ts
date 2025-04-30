@@ -16,3 +16,9 @@ export type NavLinkItem = {
     date: Date | undefined;
     setDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
   }
+
+  export type TSearch = {
+    from: string,
+    to: string,
+    date: Date
+}
