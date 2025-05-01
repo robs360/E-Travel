@@ -6,8 +6,11 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import CalendarMode from "../Shadcn/Calender";
 import { getCounter } from "@/services/counter";
+import { useDispatch } from "react-redux";
+import { addTickets } from "@/redux/features/ticketSlice";
 
-const Search = ({setInfo}:{setInfo: React.Dispatch<React.SetStateAction<any[]>>}) => {
+const Search = () => {
+  const dispatch = useDispatch()
   const [from, setSelected] = useState('');
   const [to, setSelected2] = useState('');
   const [date, setDate] = React.useState<Date>()
@@ -20,7 +23,8 @@ const Search = ({setInfo}:{setInfo: React.Dispatch<React.SetStateAction<any[]>>}
    
     const res = await getCounter(from, to, date)
     console.log(res.data)
-    setInfo(res.data)
+    
+    dispatch(addTickets(res.data))
   }
   return (
     <div className="p-6 rounded-3xl bg-white max-w-5xl mx-auto shadow-2xl">
