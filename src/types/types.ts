@@ -22,3 +22,4 @@ export type NavLinkItem = {
     to: string,
     date: Date
 }
+

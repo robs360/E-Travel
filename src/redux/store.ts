@@ -1,15 +1,46 @@
 import { configureStore } from '@reduxjs/toolkit'
 import ticketReducer from '../redux/features/ticketSlice'
-export const makeStore = () => {
-  return configureStore({
-    reducer: {
-        tickets:ticketReducer
-    },
-  })
+import storage from 'redux-persist/lib/storage'
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
+
+// This tells redux-persist how to save the state
+const persistConfig = {
+  key: 'tickets',
+  storage,
 }
 
-// Infer the type of makeStore
+// This wraps your reducer to add persistence behavior
+const persistedReducer = persistReducer(persistConfig, ticketReducer)
+
+// ✅ This function creates both store and persistor
+export const makeStore = () => {
+  const store = configureStore({
+    reducer: {
+      tickets: persistedReducer
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
+  })
+
+  const persistor = persistStore(store)
+
+  return { store, persistor }
+}
+
+// Types (for use in components)
 export type AppStore = ReturnType<typeof makeStore>
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<AppStore['getState']>
-export type AppDispatch = AppStore['dispatch']
+export type RootState = ReturnType<AppStore['store']['getState']>
+export type AppDispatch = AppStore['store']['dispatch']

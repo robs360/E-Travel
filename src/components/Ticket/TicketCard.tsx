@@ -20,7 +20,7 @@ const TicketCard=({item}:any)=>{
           {/* Middle - Time Line (Do not modify structure inside this) */}
           <div className="flex items-center">
             <div className="text-center">
-              <h1 className="text-[18px] md:text-xl font-bold text-gray-800">{item.time}PM</h1>
+              <h1 className="text-[17px] md:text-xl font-bold text-gray-800">{item.time}PM</h1>
               <p className="text-gray-500 text-sm">Mon, 5 May</p>
               <p className="text-gray-500 text-sm">Chittagong</p>
             </div>
@@ -30,13 +30,13 @@ const TicketCard=({item}:any)=>{
                 <Bus className="text-white size-4 md:size-5" />
               </span>
               <div className="-mt-4 ml-2">
-                <h1 className="text-sm text-center text-gray-700 font-medium">4 hours</h1>
+                <h1 className="text-sm text-center text-gray-700 font-medium">{item.travellTime}</h1>
                 <div className="h-[1px] w-[50px] md:w-[100px] border-t-2 border-dashed border-orange-400" />
               </div>
             </div>
 
             <div className="ml-4 text-center">
-              <h1 className="text-[18px] md:text-xl font-bold text-gray-800">6:00PM</h1>
+              <h1 className="text-[17px] md:text-xl font-bold text-gray-800">6:00PM</h1>
               <p className="text-gray-500 text-sm">Mon, 5 May</p>
               <p className="text-gray-500 text-sm">Chittagong</p>
             </div>

@@ -31,6 +31,7 @@ const LoginForm=()=>{
                 <input type="email" {...register("email")} name="email" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
                 <label>Password</label>
                 <input type="password" {...register("password")} name="password" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
+                
                 <Button className="w-full mt-2 h-[44px]">Login</Button>
             </form>
             <div className="space-y-3">
