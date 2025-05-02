@@ -9,22 +9,26 @@ import { getCounter } from "@/services/counter";
 import { useDispatch } from "react-redux";
 import { addTickets } from "@/redux/features/ticketSlice";
 
-const Search = () => {
+
+const Search = ({setLoading}:{ setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const dispatch = useDispatch()
   const [from, setSelected] = useState('');
   const [to, setSelected2] = useState('');
   const [date, setDate] = React.useState<Date>()
   const onHandleClick = async (e: any) => {
     e.preventDefault()
+    setLoading(true)
     console.log(from, to, date)
     if (!date || !from || !to) {
       return
     }
    
     const res = await getCounter(from, to, date)
-    console.log(res.data)
     
-    dispatch(addTickets(res.data))
+    setTimeout(() => {
+      dispatch(addTickets(res.data));
+      setLoading(false)
+    }, 1000);
   }
   return (
     <div className="p-6 rounded-3xl bg-white max-w-5xl mx-auto shadow-2xl">

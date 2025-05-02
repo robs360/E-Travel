@@ -9,28 +9,31 @@ import { Button } from '@/components/ui/button';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { RootState } from '@/redux/store';
 import { clearTickets } from '@/redux/features/ticketSlice';
+import { useState } from 'react';
+
 const BusTicket = () => {
-  const dispatch=useAppDispatch()
+  const [loading,setLoading]=useState(false)
+  const dispatch = useAppDispatch()
   const tickets = useAppSelector((state: RootState) => state.tickets.ticketCounter);
-  console.log(tickets)
+
   const bannerStyle = {
     backgroundImage: `url(${banner.src})`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     width: '100%',
   };
-  const handleClicked=()=>{
+  const handleClicked = () => {
     dispatch(clearTickets())
   }
   return (
     <div>
       <div style={bannerStyle} className='mt-1 bg-cover h-[180px] md:h-[240px] lg:h-[300px] flex items-center justify-center'>
         <div className='hidden lg:flex items-center justify-center '>
-          <Search></Search>
+          <Search setLoading={setLoading}></Search>
         </div>
       </div>
       <div className='lg:hidden mt-5'>
-        <Search></Search>
+        <Search setLoading={setLoading}></Search>
       </div>
       <div className='w-full h-[46px] bg-green-600 mt-6 pt-2'>
         <h1 className='text-white text-center flex justify-center'><span className='font-medium flex'>Choose Departing  Ticket <ChevronRight></ChevronRight></span> Passenger Details Review & Pay</h1>
@@ -67,6 +70,34 @@ const BusTicket = () => {
                 <Button onClick={handleClicked} className='text-green-600 hover:bg-green-300 rounded-full bg-green-200 text-[13px] h-[24px] mt-3'>Clear Data</Button>
               </div>
               <div className='h-[84vh] overflow-y-scroll w-full p-4'>
+                {
+                  loading&& (
+                    <div className="flex justify-center items-center h-40">
+                      <div className="relative w-[70px] h-[70px]">
+                        {/* Gradient spinning ring */}
+                        <div className="absolute inset-0 rounded-full border-[3px] border-t-transparent border-r-transparent border-b-green-500 border-l-green-500 animate-spin bg-white shadow-md"></div>
+
+                        {/* Centered Bus Icon */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-6 h-6 text-green-600"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                          >
+                            <path d="M4 6C4 4.343 5.343 3 7 3h10c1.657 0 3 1.343 3 3v10c0 1.104-.896 2-2 2v2a1 1 0 1 1-2 0v-2H8v2a1 1 0 1 1-2 0v-2c-1.104 0-2-.896-2-2V6z" />
+                            <circle cx="7" cy="16.5" r="1" />
+                            <circle cx="17" cy="16.5" r="1" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  )
+                }
                 {
                   tickets.map((item, index) => <TicketCard key={index} item={item}></TicketCard>)
                 }
