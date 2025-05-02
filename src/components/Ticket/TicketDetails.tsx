@@ -3,7 +3,8 @@ import Image from "next/image"
 import driver from '../../assets/info-devider.png'
 const TicketDetails = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 justify-between min-h-[300px] max-w-[1200px] mx-auto bg-white rounded-2xl">
+       
+         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 justify-between min-h-[300px] max-w-[1200px] mx-auto bg-white rounded-2xl">
             {/* 1st div */}
             <div className="flex-grow w-full md:w-auto p-5">
                 <div className="flex justify-between items-center">
@@ -21,7 +22,7 @@ const TicketDetails = () => {
                         <p className="text-green-500 text-sm">Seat:40</p>
                     </div>
                 </div>
-                <div className="mt-2 p-5 bg-gray-100 rounded-2xl">
+                <div className="mt-6 p-5 bg-gray-100 rounded-2xl">
                     <div className="flex justify-between py-4 border-b-3 border-dashed">
                         <h1 className="text-sm text-gray-500">Departure Time</h1>
                         <h1 className="text-sm text-gray-500">9:00PM</h1>
@@ -50,6 +51,7 @@ const TicketDetails = () => {
 
             </div>
         </div>
+    
     )
 }
 export default TicketDetails
