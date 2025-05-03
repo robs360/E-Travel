@@ -45,3 +45,23 @@ export const getCounter = async (from: string, to: string, date: Date) => {
         console.log("error happened")
     }
 }
+
+export const getSingleCounter=async (id:string)=>{
+    try{
+       const res = await fetch(`${process.env.api_end_point}api/v1/counter/${id}`,{
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+        },
+       })
+       const ressult = await res.json()  
+       return ressult
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
+export const totalBill=async (ticket:number,rent:number)=>{
+     return ticket*rent
+} 

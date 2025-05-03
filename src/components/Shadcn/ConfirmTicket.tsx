@@ -9,10 +9,21 @@ import Image from "next/image"
 import logo from '../../assets/logo2.jpeg'
 import { Button } from "../ui/button"
 import { useForm } from "react-hook-form"
-const ConformTicket = ({ bookedTicket }: { bookedTicket: string[] }) => {
+import { totalBill } from "@/services/counter"
+import { useEffect, useState } from "react"
+const ConformTicket =({ bookedTicket,res }: { bookedTicket: string[]; res:any }) => {
     const { register, handleSubmit } = useForm()
-    const onSubmit = (data: any) => {               // 2. create submit function
-        console.log(data);                            // form data will appear here
+    const [payment, setPayment] = useState<number | null>(null)
+
+    useEffect(() => {
+        const fetchTotal = async () => {
+            const result = await totalBill(bookedTicket.length, res.rent)
+            setPayment(result)
+        }
+        fetchTotal()
+    }, [bookedTicket.length, res.rent])
+    const onSubmit = (data: any) => {               
+        console.log(data);                           
     }
     return (
         <Dialog>
@@ -34,13 +45,13 @@ const ConformTicket = ({ bookedTicket }: { bookedTicket: string[] }) => {
                     <input type="email" {...register("email")} name="email" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
                     <label>Phone</label>
                     <input type="number" {...register("phone")} name="phone" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
-
+                     
                     <Button className="w-full mt-2 h-[44px] bg-green-500 hover:bg-green-500">Procced Payment</Button>
                 </form>
                 <div className="bg-gray-100/50 p-4 rounded-xl">
                     <div className="flex justify-between">
-                    <h1>Your Seat</h1>
-                    <span className="bg-green-500 text-white px-2.5 py-1 rounded-[8px]">4000BDT</span>
+                        <h1>Your Seat</h1>
+                        <span className="bg-green-500 text-white px-2.5 py-1 rounded-[8px]">{payment}BDT</span>
                     </div>
                     <div className="flex justify-between mt-4">
                         {

@@ -5,10 +5,10 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 
 import ConformTicket from '../Shadcn/ConfirmTicket'
-const SeatPlan = () => {
+const SeatPlan = ({ res }: any) => {
     const [bookedTicket, setBookedTicket] = useState<string[]>([]);
     const [counter, setCounter] = useState(0)
-    
+
     const handleTicket = (seat: string) => {
         const count = counter + 1;
 
@@ -77,7 +77,7 @@ const SeatPlan = () => {
                 </div>
                 {
                     bookedTicket.length > 0 && (<div>
-                      <ConformTicket bookedTicket={bookedTicket}></ConformTicket>
+                        <ConformTicket res={res} bookedTicket={bookedTicket}></ConformTicket>
                     </div>)
                 }
             </div>
