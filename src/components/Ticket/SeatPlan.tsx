@@ -3,11 +3,12 @@ import Image from 'next/image'
 import stearing from '../../assets/steering-wheel.png'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { Button } from '../ui/button'
+
+import ConformTicket from '../Shadcn/ConfirmTicket'
 const SeatPlan = () => {
     const [bookedTicket, setBookedTicket] = useState<string[]>([]);
     const [counter, setCounter] = useState(0)
-
+    
     const handleTicket = (seat: string) => {
         const count = counter + 1;
 
@@ -76,8 +77,7 @@ const SeatPlan = () => {
                 </div>
                 {
                     bookedTicket.length > 0 && (<div>
-                        <Button className='mt-2 font-semibold bg-green-500
-                         hover:bg-green-600 block mx-auto'>Confirm Ticket</Button>
+                      <ConformTicket bookedTicket={bookedTicket}></ConformTicket>
                     </div>)
                 }
             </div>
