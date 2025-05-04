@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Bus } from 'lucide-react';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 const TicketCard=({item}:any)=>{
     return(
         <div className="flex-grow p-5 my-10 shadow-2xl rounded-xl bg-white hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-shadow duration-300">
@@ -46,7 +47,7 @@ const TicketCard=({item}:any)=>{
           <div className="flex items-center gap-x-6">
             <h1 className="text-lg font-semibold text-gray-700">৳{item.rent}</h1>
             <div>
-              <Button className="bg-green-600 hover:bg-green-700 transition-all">Buy Ticket</Button>
+              <Link href={`/Bus/${item._id}`}><Button className="bg-green-600 hover:bg-green-700 transition-all">Buy Ticket</Button></Link>
               <h1 className="text-gray-500 text-[13px] mt-1">Available Seats: {item.seat}</h1>
             </div>
           </div>

@@ -44,7 +44,7 @@ const TicketDetails = ({res}:any) => {
             <div className="w-[120px] pb-5 flex gap-4 flex-row md:flex-col">
 
                 <h1 className="flex text-xl font-semibold items-center justify-center
-             h-[40px] w-[40px] rounded-full bg-green-300">৳</h1>
+             h-[40px] w-[40px] rounded-full bg-green-400 text-white">৳</h1>
                 <div>
                     <h1 className="text-xl font-semibold">{res.rent}</h1>
                     <p className="font-semibold text-sm">Per Seat</p>

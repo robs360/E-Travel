@@ -8,7 +8,7 @@ const ticketSlice = createSlice({
     initialState,
     reducers: {
         addTickets: (state, action) => {
-            state.ticketCounter = action.payload; // Replaces the current array
+            state.ticketCounter = action.payload;
         },
         clearTickets: (state) => {
             state.ticketCounter = [];

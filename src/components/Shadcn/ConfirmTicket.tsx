@@ -11,10 +11,12 @@ import { Button } from "../ui/button"
 import { useForm } from "react-hook-form"
 import { totalBill } from "@/services/counter"
 import { useEffect, useState } from "react"
+import { bookTicketHistory } from "@/services/Ticket"
+import toast from "react-hot-toast"
 const ConformTicket =({ bookedTicket,res }: { bookedTicket: string[]; res:any }) => {
     const { register, handleSubmit } = useForm()
     const [payment, setPayment] = useState<number | null>(null)
-
+    
     useEffect(() => {
         const fetchTotal = async () => {
             const result = await totalBill(bookedTicket.length, res.rent)
@@ -22,8 +24,24 @@ const ConformTicket =({ bookedTicket,res }: { bookedTicket: string[]; res:any })
         }
         fetchTotal()
     }, [bookedTicket.length, res.rent])
-    const onSubmit = (data: any) => {               
-        console.log(data);                           
+    const onSubmit =async (data: any) => {               
+        console.log(data);   
+        const ticketData={
+            ...data,
+            from:res.from,
+            to:res.to,
+            busNumber:res.busNumber,
+            busName:res.name,
+            date:res.date,
+            time:res.time,
+            BDT:payment,
+            ticket:bookedTicket
+        }
+        const result=await bookTicketHistory(ticketData)
+        if(result.success){
+            toast.success("Ticket Saved")
+            toast.success("Go Ticket History And Download")
+        }
     }
     return (
         <Dialog>

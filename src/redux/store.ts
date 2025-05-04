@@ -12,7 +12,6 @@ import {
   REGISTER,
 } from 'redux-persist'
 
-// This tells redux-persist how to save the state
 const persistConfig = {
   key: 'tickets',
   storage,
@@ -40,7 +39,6 @@ export const makeStore = () => {
   return { store, persistor }
 }
 
-// Types (for use in components)
 export type AppStore = ReturnType<typeof makeStore>
 export type RootState = ReturnType<AppStore['store']['getState']>
 export type AppDispatch = AppStore['store']['dispatch']
