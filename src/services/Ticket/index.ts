@@ -19,3 +19,19 @@ export const bookTicketHistory=async (payload:TTicket)=>{
       console.log("it is err ",err)
     }
 }
+export const getTicketHistory=async (email:string)=>{
+    try{
+        const res = await fetch(`${process.env.api_end_point}api/v1/ticket/${email}`,{
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+           })
+           const ressult = await res.json()  
+           return ressult
+    }
+    catch(err){
+      console.log("it is err ",err)
+    }
+}

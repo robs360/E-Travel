@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { RootState } from '@/redux/store';
 import { clearTickets } from '@/redux/features/ticketSlice';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const BusTicket = () => {
   const [loading,setLoading]=useState(false)
@@ -36,7 +37,7 @@ const BusTicket = () => {
         <Search setLoading={setLoading}></Search>
       </div>
       <div className='w-full h-[46px] bg-green-600 mt-6 pt-2'>
-        <h1 className='text-white text-center flex justify-center'><span className='font-medium flex'>Choose Departing  Ticket <ChevronRight></ChevronRight></span> Passenger Details Review & Pay</h1>
+        <h1 className='text-white text-center flex justify-center'><span className='font-medium flex'>Departing Ticket <ChevronRight></ChevronRight></span><Link href={'/TicketHistory'}>Ticket History</Link></h1>
       </div>
 
       <div className='flex'>
