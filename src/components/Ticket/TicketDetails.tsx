@@ -1,10 +1,8 @@
 import { Bus } from "lucide-react"
 import Image from "next/image"
 import driver from '../../assets/info-devider.png'
-const TicketDetails = ({res}:any) => {
-   
+const TicketDetails = ({res}:any) =>{
     return (
-       
          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 justify-between min-h-[300px] max-w-[1200px] mx-auto bg-white rounded-2xl">
             {/* 1st div */}
             <div className="flex-grow w-full md:w-auto p-5">
@@ -52,7 +50,6 @@ const TicketDetails = ({res}:any) => {
 
             </div>
         </div>
-    
     )
 }
 export default TicketDetails
