@@ -11,9 +11,10 @@ import { RootState } from '@/redux/store';
 import { clearTickets } from '@/redux/features/ticketSlice';
 import { useState } from 'react';
 import Link from 'next/link';
+import Review from '@/components/Review/Review';
 
 const BusTicket = () => {
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false)
   const dispatch = useAppDispatch()
   const tickets = useAppSelector((state: RootState) => state.tickets.ticketCounter);
 
@@ -27,7 +28,7 @@ const BusTicket = () => {
     dispatch(clearTickets())
   }
   return (
-    <div>
+    <div className='bg-white pb-8'>
       <div style={bannerStyle} className='mt-1 bg-cover h-[180px] md:h-[240px] lg:h-[300px] flex items-center justify-center'>
         <div className='hidden lg:flex items-center justify-center '>
           <Search setLoading={setLoading}></Search>
@@ -64,15 +65,15 @@ const BusTicket = () => {
                       value="AC"
                       className="hidden peer"
                     />
-                    <div className="w-4 h-4 border border-gray-400 peer-checked:bg-blue-500 peer-checked:border-blue-500 rounded-[2px]"></div>
+                    <div className="w-4 h-4 peer-checked:bg-blue-500 peer-checked:border-blue-500 rounded-[2px]"></div>
                     Non-Ac
                   </label>
                 </form>
                 <Button onClick={handleClicked} className='text-green-600 hover:bg-green-300 rounded-full bg-green-200 text-[13px] h-[24px] mt-3'>Clear Data</Button>
               </div>
-              <div className='h-[84vh] overflow-y-scroll w-full p-4'>
+              <div className='w-full p-4'>
                 {
-                  loading&& (
+                  loading && (
                     <div className="flex justify-center items-center h-40">
                       <div className="relative w-[70px] h-[70px]">
                         {/* Gradient spinning ring */}
@@ -100,7 +101,10 @@ const BusTicket = () => {
                   )
                 }
                 {
-                  tickets.map((item, index) => <TicketCard key={index} item={item}></TicketCard>)
+                  tickets.length>0?( <>
+                  {
+                    tickets.map((item, index) => <TicketCard key={index} item={item}></TicketCard>)
+                  }</>):(<><h1 className='text-red-400 text-center'>Sorry! No Data Found</h1></>)
                 }
               </div>
 
@@ -108,7 +112,8 @@ const BusTicket = () => {
           )
         }
       </div>
-
+      
+      <Review></Review>
     </div>
   )
 }
