@@ -3,10 +3,9 @@ import logo from '../../assets/logo2.jpeg'
 import Image from "next/image"
 import { Phone } from "lucide-react"
 
-
 const TicketDownload = ({ res }: any) => {
     
-
+   
     return (
         <div className='min-w-[500px]'>
             {res?.data.map((item: any, index: number) => (
