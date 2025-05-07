@@ -9,7 +9,6 @@ import { getCounter } from "@/services/counter";
 import { useDispatch } from "react-redux";
 import { addTickets } from "@/redux/features/ticketSlice";
 
-
 const Search = ({setLoading}:{ setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const dispatch = useDispatch()
   const [from, setSelected] = useState('');

@@ -6,6 +6,7 @@ import { Star } from "lucide-react";
 
 const Review =  () => {
     const [info,setInfo]=useState([])
+    const [vari,serVari]=useState(true)
     useEffect(()=>{
         const fetchData=async ()=>{
             const res=await getReview()
@@ -15,14 +16,18 @@ const Review =  () => {
     },[])
     console.log(info)
     return (
-        <div className="max-w-[1260px] mx-auto p-6">
+        <div onMouseEnter={()=>{
+            serVari(false)
+        }} onMouseLeave={()=>{
+            serVari(true)
+        }} className="max-w-[1320px] mx-auto p-6">
             <h1 className='uppercase text-3xl mb-8 font-semibold mt-6'>Our Customer Review</h1>
-            <Marquee className="flex gap-3 w-full">
+            <Marquee play={vari} className="flex gap-3 w-full">
                 {
-                    info.map((item:any,index:number)=><div className="min-h-[280px] p-4 w-[346px] rounded-[8px] mr-5 border border-black">
-                            <div className="">
+                    info.map((item:any,index:number)=><div className="flex min-h-[315px] p-4 w-[346px] rounded-[8px] mr-5 border border-black">
+                            <div className="flex flex-col justify-between">
                                <div className="flex space-x-4">
-                               <Image src={''} alt="" width={60} height={60} 
+                               <Image src={item.image} alt="" width={60} height={60} 
                                 className="rounded-full"></Image>
                                 <div>
                                     <h1 className="text-[18px] font-semibold">{item.name}</h1>
@@ -39,6 +44,10 @@ const Review =  () => {
                                   
                                 </div>
                                 <p className="text-sm text-gray-400 mt-3">{item.review} Lorem ipsum dolor sit amet consectetur. </p>
+                                <div className="flex space-x-4 items-start">
+                                    <Image src={item.serImage} width={70} height={70} alt="" className="rounded-[8px]"></Image>
+                                    <h1>{item.serName}</h1>
+                                </div>
                             </div>
                     </div>)
                 }

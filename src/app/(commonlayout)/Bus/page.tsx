@@ -17,7 +17,7 @@ const BusTicket = () => {
   const [loading, setLoading] = useState(false)
   const dispatch = useAppDispatch()
   const tickets = useAppSelector((state: RootState) => state.tickets.ticketCounter);
-
+  console.log('it is tickets ', tickets)
   const bannerStyle = {
     backgroundImage: `url(${banner.src})`,
     backgroundPosition: 'center',
@@ -101,10 +101,10 @@ const BusTicket = () => {
                   )
                 }
                 {
-                  tickets.length>0?( <>
-                  {
-                    tickets.map((item, index) => <TicketCard key={index} item={item}></TicketCard>)
-                  }</>):(<><h1 className='text-red-400 text-center'>Sorry! No Data Found</h1></>)
+                  tickets.length > 0 ? (<>
+                    {
+                      tickets.map((item, index) => <TicketCard key={index} item={item}></TicketCard>)
+                    }</>) : (<><h1 className='text-red-400 text-center'>Sorry! No Data Found</h1></>)
                 }
               </div>
 
@@ -112,7 +112,7 @@ const BusTicket = () => {
           )
         }
       </div>
-      
+
       <Review></Review>
     </div>
   )

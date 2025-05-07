@@ -14,7 +14,6 @@ import { CalendarModeProps } from "@/types/types"
 
 const CalendarMode = ({date,setDate}:CalendarModeProps) => {
     
-
     return (
         <div>
             <Popover>

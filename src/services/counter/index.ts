@@ -38,6 +38,7 @@ export const getCounter = async (from: string, to: string, date: Date) => {
         })
 
         const ressult = await res.json()  
+        console.log("it is result ",ressult)
         return ressult
 
     }

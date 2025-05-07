@@ -1,9 +1,11 @@
-
+import { FC } from "react";
 import SeatPlan from "@/components/Ticket/SeatPlan"
 import TicketDetails from "@/components/Ticket/TicketDetails"
 import { getSingleCounter } from "@/services/counter"
-const BookTicket = async ({params}:{params:{id:string}}) => {
+
+const BookTicket = async ({params}:{params:Promise<{id:string}>}) => {
     const {id}=await params
+    console.log(id)
     const res = await getSingleCounter(id)
     
     return (
