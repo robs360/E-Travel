@@ -104,7 +104,7 @@ const BusTicket = () => {
                   tickets.length > 0 ? (<>
                     {
                       tickets.map((item, index) => <TicketCard key={index} item={item}></TicketCard>)
-                    }</>) : (<><h1 className='text-red-400 text-center'>Sorry! No Data Found</h1></>)
+                    }</>) : (<><h1 className='text-red-400 text-center'>Sorry! No Data Found in Data Base</h1></>)
                 }
               </div>
 

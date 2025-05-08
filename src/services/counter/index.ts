@@ -21,7 +21,7 @@ export const createCounter = async (counterData: any) => {
 export const getCounter = async (from: string, to: string, date: Date) => {
     try {
         const dateString = date.toLocaleDateString("en-CA");
-        
+        console.log("it is date string ",dateString)
         const queryString = new URLSearchParams({
             from: from,
             to: to,
@@ -38,7 +38,7 @@ export const getCounter = async (from: string, to: string, date: Date) => {
         })
 
         const ressult = await res.json()  
-        console.log("it is result ",ressult)
+        
         return ressult
 
     }
