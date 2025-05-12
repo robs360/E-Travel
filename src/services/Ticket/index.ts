@@ -27,6 +27,10 @@ export const getTicketHistory = async (email: string) => {
                 "Content-Type": "application/json",
             },
         })
+         if (!res.ok) {
+            console.error("Failed to fetch reviews:", res.status, res.statusText);
+            return []; // or return null
+        }
         const ressult = await res.json()
         return ressult
     }
@@ -42,11 +46,17 @@ export const getReview = async () => {
             headers: {
                 "Content-Type": "application/json",
             },
-        })
-        const ressult = await res.json()
-        return ressult
+        });
+
+        if (!res.ok) {
+            console.error("Failed to fetch reviews:", res.status, res.statusText);
+            return []; // or return null
+        }
+
+        const result = await res.json();
+        return result;
+    } catch (err) {
+        console.error("Error fetching review:", err);
+        return []; // or return null
     }
-    catch (err) {
-        console.log(err)
-    }
-}
+};

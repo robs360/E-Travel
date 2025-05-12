@@ -11,6 +11,26 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
+// const createNoopStorage = () => {
+//   return {
+//     getItem(_key: string) {
+//       return Promise.resolve(null)
+//     },
+//     setItem(_key: string, value: string) {
+//       return Promise.resolve()
+//     },
+//     removeItem(_key: string) {
+//       return Promise.resolve()
+//     },
+//   }
+// }
+
+// const isServer = typeof window === 'undefined'
+ 
+// // ✅ Use real localStorage only on the client
+// const storage = !isServer
+//   ? require('redux-persist/lib/storage').default
+//   : createNoopStorage()
 
 const persistConfig = {
   key: 'tickets',

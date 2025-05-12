@@ -63,6 +63,11 @@ export const getSingleCounter=async (id:string)=>{
     }
 }
 
-export const totalBill=async (ticket:number,rent:number)=>{
-     return ticket*rent
-} 
+export const totalBill = async (ticket: number = 0, rent: number = 0): Promise<number> => {
+    try {
+        return ticket * rent;
+    } catch (err) {
+        console.log(err);
+        return 0; // <-- ensures return is always a number
+    }
+};

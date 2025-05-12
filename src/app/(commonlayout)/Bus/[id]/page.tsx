@@ -1,4 +1,4 @@
-import { FC } from "react";
+
 import SeatPlan from "@/components/Ticket/SeatPlan"
 import TicketDetails from "@/components/Ticket/TicketDetails"
 import { getSingleCounter } from "@/services/counter"
