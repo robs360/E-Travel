@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth"
 
 const CommonLayout = async ({ children }: { children: React.ReactNode }) => {
     const session:Tsession|null=await getServerSession(authOptions)
-    console.log(session)
+    
     return (
         <div>
             <NavBar session={session}></NavBar>

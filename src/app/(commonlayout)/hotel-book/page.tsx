@@ -1,6 +1,8 @@
+
 import GetData from '@/components/Hotel/GetData';
 import banner from '../../../assets/hotel_image.webp'
 const HotelBook = () => {
+  
     const bannerStyle = {
         backgroundImage: `url(${banner.src})`,
         backgroundPosition: 'center',
@@ -15,10 +17,7 @@ const HotelBook = () => {
                 your adventure
               </h1>
         </div>
-
-        <div className='mt-4'>
-           <GetData></GetData>
-        </div>
+           <GetData></GetData>     
       </div>
     )
 }

@@ -35,3 +35,7 @@ export type TTicket = {
   ticket: string[],
   date: Date
 }
+
+export type ShowHotelDataProps = {
+  loading: boolean;
+};

@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import ticketReducer from '../redux/features/ticketSlice'
+import  hotelDataSlice  from '../redux/features/hotelDataSlice'
 import storage from 'redux-persist/lib/storage'
 import {
   persistReducer,
@@ -11,40 +12,24 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-// const createNoopStorage = () => {
-//   return {
-//     getItem(_key: string) {
-//       return Promise.resolve(null)
-//     },
-//     setItem(_key: string, value: string) {
-//       return Promise.resolve()
-//     },
-//     removeItem(_key: string) {
-//       return Promise.resolve()
-//     },
-//   }
-// }
-
-// const isServer = typeof window === 'undefined'
- 
-// // ✅ Use real localStorage only on the client
-// const storage = !isServer
-//   ? require('redux-persist/lib/storage').default
-//   : createNoopStorage()
 
 const persistConfig = {
   key: 'tickets',
   storage,
 }
+const hotelpersistConfig = {
+  key: 'hoteInfo',
+  storage,
+}
 
-// This wraps your reducer to add persistence behavior
 const persistedReducer = persistReducer(persistConfig, ticketReducer)
+const persisthotelInfo= persistReducer(hotelpersistConfig,hotelDataSlice)
 
-// ✅ This function creates both store and persistor
 export const makeStore = () => {
   const store = configureStore({
     reducer: {
-      tickets: persistedReducer
+      tickets: persistedReducer,
+      hotelinfo:persisthotelInfo
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
@@ -53,7 +38,6 @@ export const makeStore = () => {
         },
       }),
   })
-
   const persistor = persistStore(store)
 
   return { store, persistor }
