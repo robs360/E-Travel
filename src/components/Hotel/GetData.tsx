@@ -2,12 +2,13 @@
 import { useState } from "react"
 import { Button } from "../ui/button"
 import ShowHotelData from "./SHowHotelData"
-
+import { clearHotelData } from "@/redux/features/hotelDataSlice"
+import { useDispatch } from "react-redux"
 const GetData = () => {
     const [queryText, setQueryText] = useState('')
     const [info, setInfo] = useState<any[]>([])
     const [loading, setLoading] = useState(false);
-    
+    const dispatch=useDispatch()
     const handleSearch = async () => {
         if (!queryText) return;
 
@@ -35,6 +36,9 @@ const GetData = () => {
         }
     }
     console.log(info)
+     const handleClicked = () => {
+        dispatch(clearHotelData([]))
+    }
     return (
         <div>
             <div className="flex justify-center w-full px-4 py-6 bg-gradient-to-br from-orange-100 to-white">
@@ -42,6 +46,7 @@ const GetData = () => {
 
                     <input
                         type="text"
+
                         value={queryText}
                         placeholder="🔍 Search For Hotel "
                         onChange={(e) => setQueryText(e.target.value)}
@@ -54,7 +59,51 @@ const GetData = () => {
 
                 </div>
             </div>
-            <ShowHotelData loading={loading}></ShowHotelData>
+            <div className="flex flex-col md:flex-row  gap-3 p-4 max-w-[1200px] mx-auto">
+                <div className='w-full md:w-[220px] mt-14'>
+                    <h1 className='font-medium mb-2'>Default Search Here</h1>
+                    <form action="" className='flex flex-row md:flex-col space-x-7 md:space-x-0.5'>
+                        <label className="flex items-center gap-2 mb-2 text-[15px] font-light text-black cursor-pointer">
+                            <input
+                                type="radio"
+                                name="field"
+                                onChange={(e)=>setQueryText(e.target.value)}
+                                value="Hotel In cox's Bazar"
+                                className="hidden peer"
+                            />
+                            <div className="w-4 h-4 border border-gray-400 peer-checked:bg-blue-500 peer-checked:border-blue-500 rounded-[2px]"></div>
+                            Cox's Bazar Hotel
+                        </label>
+                        <label className="flex items-center gap-2 mb-2 text-[15px] font-light text-black cursor-pointer">
+                            <input
+                                type="radio"
+                                name="field"
+                                onChange={(e)=>setQueryText(e.target.value)}
+                                value="Hotel In Chittagong"
+                                className="hidden peer"
+                            />
+                            <div className="w-4 h-4 border border-gray-400 peer-checked:bg-blue-500 peer-checked:border-blue-500"></div>
+                            Hotel In Chittagong
+                        </label>
+
+                        <label className="flex items-center gap-2 mb-2 text-[15px] font-light text-black cursor-pointer">
+                            <input
+                                type="radio"
+                                name="field"
+                                onChange={(e)=>setQueryText(e.target.value)}
+                                value="Hotel In Shyllet"
+                                className="hidden peer"
+                            />
+                            <div className="w-4 h-4 border border-gray-400 peer-checked:bg-blue-500 peer-checked:border-blue-500"></div>
+                            Hotel In Shyllet
+                        </label>
+                    </form>
+                    <Button onClick={handleClicked} className='text-green-600 hover:bg-green-300 rounded-full bg-green-200 text-[13px] h-[24px] mt-3'>Clear Data</Button>
+                </div>
+                <div className="flex-grow">
+                    <ShowHotelData loading={loading} info={info}></ShowHotelData>
+                </div>
+            </div>
         </div>
 
     )

@@ -15,11 +15,11 @@ import {
 
 const persistConfig = {
   key: 'tickets',
-  storage,
+  storage
 }
 const hotelpersistConfig = {
   key: 'hoteInfo',
-  storage,
+  storage
 }
 
 const persistedReducer = persistReducer(persistConfig, ticketReducer)

@@ -38,4 +38,12 @@ export type TTicket = {
 
 export type ShowHotelDataProps = {
   loading: boolean;
+  info:Array<any>[]
 };
+
+export const hotelDescriptions: string[] = [
+  "Luxury beachfront hotel offering panoramic sea views, rooftop dining, infinity pool, spa treatments, and private balconies.",
+  "Modern city hotel with fast Wi-Fi, 24/7 concierge, gym, rooftop lounge, conference rooms, and complimentary breakfast daily.",
+  "Eco-resort nestled in the hills with nature trails, organic meals, yoga classes, spa services, and sustainable accommodations.",
+  "Family-friendly hotel near amusement parks featuring kid zones, swimming pool, free shuttle service, and spacious family rooms."
+];
