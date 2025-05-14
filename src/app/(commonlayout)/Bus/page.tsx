@@ -71,7 +71,7 @@ const BusTicket = () => {
                 </form>
                 <Button onClick={handleClicked} className='text-green-600 hover:bg-green-300 rounded-full bg-green-200 text-[13px] h-[24px] mt-3'>Clear Data</Button>
               </div>
-              <div className='w-full p-4'>
+              <div className='w-full p-3'>
                 {
                   loading && (
                     <div className="flex justify-center items-center h-40">
