@@ -20,7 +20,7 @@ const Review =  () => {
             serVari(false)
         }} onMouseLeave={()=>{
             serVari(true)
-        }} className="max-w-[1320px] mx-auto p-6">
+        }} className="max-w-[1200px] mx-auto p-6">
             <h1 className='uppercase text-3xl mb-8 font-semibold mt-6'>Our Customer Review</h1>
             <Marquee play={vari} className="flex gap-3 w-full">
                 {
@@ -36,7 +36,7 @@ const Review =  () => {
                                </div>
                                 <div className="flex space-x-4 items-center mt-5">
                                   <div className="w-12 h-9 items-center rounded-[4px] 
-                                  justify-center bg-blue-800 flex space-x-2">
+                                  justify-center bg-green-700 flex space-x-2">
                                        <Star className="text-white size-5"></Star>
                                        <span className="text-white text-sm">{item.rating}</span>
                                   </div>

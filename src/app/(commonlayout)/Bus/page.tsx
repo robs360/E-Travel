@@ -91,7 +91,6 @@ const BusTicket = () => {
         }
       </div>
 
-      <Review></Review>
     </div>
   )
 }

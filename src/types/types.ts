@@ -38,12 +38,29 @@ export type TTicket = {
 
 export type ShowHotelDataProps = {
   loading: boolean;
-  info:Array<any>[]
+  
 };
 
 export const hotelDescriptions: string[] = [
   "Luxury beachfront hotel offering panoramic sea views, rooftop dining, infinity pool, spa treatments, and private balconies.",
   "Modern city hotel with fast Wi-Fi, 24/7 concierge, gym, rooftop lounge, conference rooms, and complimentary breakfast daily.",
   "Eco-resort nestled in the hills with nature trails, organic meals, yoga classes, spa services, and sustainable accommodations.",
-  "Family-friendly hotel near amusement parks featuring kid zones, swimming pool, free shuttle service, and spacious family rooms."
+  "Family-friendly hotel near amusement parks featuring kid zones, swimming pool, free shuttle service, and spacious family rooms.",
+  "Charming countryside inn with cozy fireplaces, home-cooked meals, bicycle rentals, and scenic walking trails.",
+  "Trendy urban hotel with rooftop bar, coworking space, curated playlists, and in-room smart technology.",
+  "Romantic getaway resort with candlelit dinners, couples massages, private hot tubs, and sunset cruises.",
+  "Airport hotel with soundproof rooms, express check-in/out, luggage services, and free airport transfers.",
+  "Secluded island resort offering overwater bungalows, snorkeling excursions, fine dining, and cultural shows.",
+  "Historic hotel in the heart of the city featuring antique décor, guided tours, and afternoon tea service.",
+  "Boutique hotel with designer interiors, artisanal breakfasts, pet-friendly rooms, and exclusive shopping access.",
+  "Lakeside lodge with fishing docks, canoe rentals, bonfire nights, and panoramic water views.",
+  "Wellness retreat focused on mental and physical health, plant-based cuisine, mindfulness classes, and detox programs.",
+  "Ski resort with slopeside cabins, snowboarding lessons, après-ski lounges, and ski-lift access.",
+  "Tech-savvy hotel offering voice-controlled rooms, robotic room service, and keyless entry via mobile app.",
+  "Beach bungalow resort with hammocks, tiki bars, paddleboarding, beach yoga, and local seafood grills.",
+  "Desert oasis resort with camel rides, traditional cuisine, luxurious tents, and stargazing under clear skies.",
+  "Business hotel in financial district with meeting pods, fast check-in, airport shuttle, and ergonomic workstations.",
+  "Art-themed boutique hotel featuring gallery rooms, local artist exhibits, rooftop events, and creative workshops.",
+  "Mountain retreat with ski-in/ski-out access, hot tubs, fireplace suites, gear rentals, and après-ski lounges."
 ];
+

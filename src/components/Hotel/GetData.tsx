@@ -2,8 +2,9 @@
 import { useState } from "react"
 import { Button } from "../ui/button"
 import ShowHotelData from "./SHowHotelData"
-import { clearHotelData } from "@/redux/features/hotelDataSlice"
+import { addHotelData, clearHotelData } from "@/redux/features/hotelDataSlice"
 import { useDispatch } from "react-redux"
+import Review from "../Review/Review"
 const GetData = () => {
     const [queryText, setQueryText] = useState('')
     const [info, setInfo] = useState<any[]>([])
@@ -29,6 +30,7 @@ const GetData = () => {
 
             const data = await response.json();
             setInfo(data.places);
+            dispatch(addHotelData(data.places))
         } catch (err) {
             console.error('Search error:', err);
         } finally {
@@ -59,11 +61,11 @@ const GetData = () => {
 
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row  gap-3 p-4 max-w-[1200px] mx-auto">
+            <div className="flex flex-col md:flex-row  gap-3 p-3 md:p-4 max-w-[1200px] mx-auto">
                 <div className='w-full md:w-[220px] mt-14'>
                     <h1 className='font-medium mb-2'>Default Search Here</h1>
                     <form action="" className='flex flex-row md:flex-col space-x-7 md:space-x-0.5'>
-                        <label className="flex items-center gap-2 mb-2 text-[15px] font-light text-black cursor-pointer">
+                        <label className="flex items-center gap-2 mb-2 text-sm font-light text-black cursor-pointer">
                             <input
                                 type="radio"
                                 name="field"
@@ -74,7 +76,7 @@ const GetData = () => {
                             <div className="w-4 h-4 border border-gray-400 peer-checked:bg-blue-500 peer-checked:border-blue-500 rounded-[2px]"></div>
                             Cox's Bazar Hotel
                         </label>
-                        <label className="flex items-center gap-2 mb-2 text-[15px] font-light text-black cursor-pointer">
+                        <label className="flex items-center gap-2 mb-2 text-sm font-light text-black cursor-pointer">
                             <input
                                 type="radio"
                                 name="field"
@@ -86,7 +88,7 @@ const GetData = () => {
                             Hotel In Chittagong
                         </label>
 
-                        <label className="flex items-center gap-2 mb-2 text-[15px] font-light text-black cursor-pointer">
+                        <label className="flex items-center gap-2 mb-2 text-sm font-light text-black cursor-pointer">
                             <input
                                 type="radio"
                                 name="field"
@@ -101,9 +103,10 @@ const GetData = () => {
                     <Button onClick={handleClicked} className='text-green-600 hover:bg-green-300 rounded-full bg-green-200 text-[13px] h-[24px] mt-3'>Clear Data</Button>
                 </div>
                 <div className="flex-grow">
-                    <ShowHotelData loading={loading} info={info}></ShowHotelData>
+                    <ShowHotelData loading={loading}></ShowHotelData>
                 </div>
             </div>
+            <Review></Review>
         </div>
 
     )
