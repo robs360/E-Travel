@@ -64,3 +64,20 @@ export const hotelDescriptions: string[] = [
   "Mountain retreat with ski-in/ski-out access, hot tubs, fireplace suites, gear rentals, and après-ski lounges."
 ];
 
+
+export const imageLink=[
+  'https://i.imgur.com/C2D5i7G.jpeg',
+  "https://i.imgur.com/BlgBpd4.jpeg",
+  "https://i.imgur.com/noZKmh2.jpeg",
+  "https://i.imgur.com/X4Pluai.jpeg",
+  "https://i.imgur.com/4ZKTetm.jpeg",
+  "https://i.imgur.com/ppCm69M.jpeg",
+  "https://i.imgur.com/MmigvHN.jpeg",
+  "https://i.imgur.com/o4vSddP.jpeg",
+  "https://i.imgur.com/zSSVF8b.jpeg",
+  "https://i.imgur.com/zSSVF8b.jpeg",
+  "https://i.imgur.com/cXnxLIq.jpeg",
+  "https://i.imgur.com/ePmBKpD.jpeg",
+  "https://i.imgur.com/3cuvvY4.jpeg",
+  "https://i.imgur.com/yg2V4Uz.jpeg"
+]

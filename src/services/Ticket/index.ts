@@ -27,7 +27,7 @@ export const getTicketHistory = async (email: string) => {
                 "Content-Type": "application/json",
             },
         })
-         if (!res.ok) {
+        if (!res.ok) {
             console.error("Failed to fetch reviews:", res.status, res.statusText);
             return []; // or return null
         }

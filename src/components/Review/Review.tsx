@@ -21,10 +21,10 @@ const Review =  () => {
         }} onMouseLeave={()=>{
             serVari(true)
         }} className="max-w-[1200px] mx-auto p-6">
-            <h1 className='uppercase text-3xl mb-8 font-semibold mt-6'>Our Customer Review</h1>
+            <h1 className='uppercase text-2xl mb-8 font-semibold mt-6'>Our Customer Review</h1>
             <Marquee play={vari} className="flex gap-3 w-full">
                 {
-                    info.map((item:any,index:number)=><div className="flex min-h-[315px] p-4 w-[346px] rounded-[8px] mr-5 border border-black">
+                    info.map((item:any,index:number)=><div className="flex min-h-[290px] p-4 w-[346px] rounded-[8px] mr-5 border border-black">
                             <div className="flex flex-col justify-between">
                                <div className="flex space-x-4">
                                <Image src={item.image} alt="" width={60} height={60} 
@@ -43,7 +43,7 @@ const Review =  () => {
                                   <h1 className="text-sm">{item.status}</h1>
                                   
                                 </div>
-                                <p className="text-sm text-gray-400 mt-3">{item.review} Lorem ipsum dolor sit amet consectetur. </p>
+                                <p className="text-sm text-gray-600 mt-3">{item.review} Lorem ipsum dolor sit amet consectetur. </p>
                                 <div className="flex space-x-4 items-start">
                                     <Image src={item.serImage} width={70} height={70} alt="" className="rounded-[8px]"></Image>
                                     <h1>{item.serName}</h1>

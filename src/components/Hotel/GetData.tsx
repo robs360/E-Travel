@@ -5,9 +5,9 @@ import ShowHotelData from "./SHowHotelData"
 import { addHotelData, clearHotelData } from "@/redux/features/hotelDataSlice"
 import { useDispatch } from "react-redux"
 import Review from "../Review/Review"
+import TopHotel from "../TopHotel/TopHotel"
 const GetData = () => {
     const [queryText, setQueryText] = useState('')
-    const [info, setInfo] = useState<any[]>([])
     const [loading, setLoading] = useState(false);
     const dispatch=useDispatch()
     const handleSearch = async () => {
@@ -29,7 +29,7 @@ const GetData = () => {
             });
 
             const data = await response.json();
-            setInfo(data.places);
+           
             dispatch(addHotelData(data.places))
         } catch (err) {
             console.error('Search error:', err);
@@ -37,7 +37,7 @@ const GetData = () => {
             setLoading(false);
         }
     }
-    console.log(info)
+    
      const handleClicked = () => {
         dispatch(clearHotelData([]))
     }
@@ -107,6 +107,7 @@ const GetData = () => {
                 </div>
             </div>
             <Review></Review>
+            <TopHotel></TopHotel>
         </div>
 
     )
