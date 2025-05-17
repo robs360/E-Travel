@@ -16,7 +16,7 @@ const Banner = () => {
       className="flex justify-center items-center w-full h-[380px] md:h-[450px] lg:h-[600px] px-4"
     >
       <div className="text-center space-y-3 bg-black/40 p-4 rounded-xl">
-        <h1 className="text-[34px] md:text-5xl font-bold text-white uppercase tracking-wide">
+        <h1 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-wide">
           End-to-End Travel
         </h1>
         <h2 className="text-2xl md:text-3xl font-semibold text-green-400">
@@ -27,7 +27,7 @@ const Banner = () => {
           <br className="hidden md:block" />
           Let's make your dreams a reality.
         </p>
-        <Link href={'/Bus'}><Button className="text-[16px] md:text-[18px] bg-green-500 hover:bg-green-600 font-semibold mt-4">
+        <Link href={'/Bus'}><Button className="text-[16px] md:text-[18px] bg-green-500 hover:bg-green-600 font-semibold mt-3">
           Buy Ticket
         </Button></Link>
       </div>
