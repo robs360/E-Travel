@@ -17,10 +17,10 @@ const Company = () => {
                     {[sudia, ana, marsa, shamoly, hanif, green].map((logo, i) => (
                         <Image
                             key={i}
-                            className="mx-10 grayscale hover:grayscale-0 transition-all duration-300"
+                            className="border-2 p-4 rounded-[8px] border-gray-300 mx-10  transition-all duration-300"
                             src={logo}
-                            width={100}
-                            height={70}
+                            width={145}
+                            height={75}
                             alt="Partner Company Logo"
                         />
                     ))}
