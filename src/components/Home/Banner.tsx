@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import banner from '../../assets/banner.png';
 import { Button } from '../ui/button';
 
@@ -26,9 +27,9 @@ const Banner = () => {
           <br className="hidden md:block" />
           Let's make your dreams a reality.
         </p>
-        <Button className="text-[16px] md:text-[18px] bg-green-500 hover:bg-green-600 font-semibold mt-4">
+        <Link href={'/Bus'}><Button className="text-[16px] md:text-[18px] bg-green-500 hover:bg-green-600 font-semibold mt-4">
           Buy Ticket
-        </Button>
+        </Button></Link>
       </div>
     </div>
   );

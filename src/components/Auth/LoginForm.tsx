@@ -8,16 +8,16 @@ import { FaFacebook } from "react-icons/fa";
 import google from '../../assets/google.webp'
 import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
-const LoginForm=()=>{
-    const {register,handleSubmit}=useForm()
+const LoginForm = () => {
+    const { register, handleSubmit } = useForm()
     const onSubmit = (data: any) => {               // 2. create submit function
         console.log(data);                            // form data will appear here
-      }
-    return(
-        <motion.div  initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }} className="bg-white p-8 rounded-2xl shadow-2xl w-[360px] md:w-[475px] lg:w-[420px] mx-auto space-y-6">
-         <div className="flex items-center ">
+    }
+    return (
+        <motion.div initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }} className="bg-white p-8 rounded-2xl shadow-2xl w-[360px] md:w-[475px] lg:w-[420px] mx-auto space-y-6">
+            <div className="flex items-center ">
                 <Image src={logo} width={90} height={90} alt="logo" className=""></Image>
                 <div>
                     <h1 className="text-3xl font-bold text-gray-800">Login</h1>
@@ -31,20 +31,20 @@ const LoginForm=()=>{
                 <input type="email" {...register("email")} name="email" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
                 <label>Password</label>
                 <input type="password" {...register("password")} name="password" className="h-[44px] border border-gray-400 rounded-md px-3 text-base" />
-                
-                <Button className="w-full mt-2 h-[44px]">Login</Button>
+
+                <Button className="bg-green-500 text-[17px] hover:bg-green-600 font-semibold w-full mt-2 h-[44px]">Login</Button>
             </form>
             <div className="space-y-3">
-            <button  onClick={()=>{signIn('facebook',{callbackUrl:'http://localhost:3000/'})}}
-                    
+                <button onClick={() => { signIn('facebook', { callbackUrl: 'http://localhost:3000/' }) }}
+
                     className="flex items-center justify-center w-full h-[45px] border border-blue-500 rounded-md space-x-3 hover:bg-blue-50 transition"
                 >
                     <FaFacebook className="text-blue-500 size-6" />
                     <span className="font-medium text-blue-600">Continue with Facebook</span>
                 </button>
 
-                <button  onClick={()=>{signIn('google',{callbackUrl:'http://localhost:3000/'})}}
-                   
+                <button onClick={() => { signIn('google', { callbackUrl: 'http://localhost:3000/' }) }}
+
                     className="flex items-center justify-center w-full h-[45px] border border-gray-400 rounded-md space-x-3 hover:bg-gray-50 transition"
                 >
                     <Image src={google} height={24} width={24} alt="Google" />

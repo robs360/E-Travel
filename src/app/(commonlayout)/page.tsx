@@ -1,4 +1,5 @@
 import Banner from "@/components/Home/Banner"
+import Company from "@/components/Home/Comapny"
 import FAQ from "@/components/Home/FAQ"
 import Marketing from "@/components/Home/Marketing"
 
@@ -9,8 +10,11 @@ const Home=()=>{
     return(
         <div>
             <Banner></Banner>
+            
             <SearchWay></SearchWay>
+             
             <Services></Services>
+            <Company></Company>
             <Marketing></Marketing>
             <FAQ></FAQ>
         </div>

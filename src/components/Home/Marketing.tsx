@@ -4,7 +4,7 @@ import { Ticket, Users } from "lucide-react";
 
 const Marketing = () => {
   return (
-    <div className="mt-16 p-5 flex flex-col md:flex-row justify-center gap-10 items-center">
+    <div className="mt-20 p-5 flex flex-col md:flex-row justify-center gap-10 items-center">
       {/* Text Content */}
       <div className="md:w-[420px] text-center md:text-left">
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">
@@ -20,14 +20,14 @@ const Marketing = () => {
             <h2 className="text-2xl font-medium text-green-500 flex gap-x-2 items-center">
               <Ticket className="text-xl" /> Ticket Sold
             </h2>
-            <p className="text-3xl font-bold text-gray-800 mt-2">90,000+</p>
+            <p className="text-2xl font-bold text-gray-800 mt-2">90,000+</p>
           </div>
 
           <div className="bg-white p-6 shadow-lg rounded-xl border-l-4 border-green-500 hover:shadow-2xl transition-all duration-300 ease-in-out">
             <h2 className="text-2xl font-medium text-green-500 flex gap-x-2 items-center">
               <Users className="text-xl" /> Happy Users
             </h2>
-            <p className="text-3xl font-bold text-gray-800 mt-2">1,000,000+</p>
+            <p className="text-2xl font-bold text-gray-800 mt-2">1,000,00+</p>
           </div>
         </div>
       </div>

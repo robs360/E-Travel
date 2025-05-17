@@ -11,9 +11,9 @@ const HotelCard = ({ hotelInfo, counter }: { hotelInfo: any, counter: number }) 
                 hotelInfo?.slice(0, counter).map((item: any, index: number) => {
                     const addressArray = item.formattedAddress.split(',').map((item: any) => item.trim());
                     let num = index % 20
-                    let price = 2120 + Math.floor(Math.random() * 1000) + 1;     
-                    let randomNumber:number=Math.floor(Math.random() * 14);
-                    
+                    let price = 2120 + Math.floor(Math.random() * 1000) + 1;
+                    let randomNumber: number = Math.floor(Math.random() * 14);
+
                     return (
                         <div
                             key={index}

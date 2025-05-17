@@ -15,13 +15,13 @@ import { CalendarModeProps } from "@/types/types"
 const CalendarMode = ({date,setDate}:CalendarModeProps) => {
     
     return (
-        <div>
+        <div className="w-full lg:w-auto">
             <Popover>
                 <PopoverTrigger asChild>
                     <Button
                         variant={"outline"}
                         className={cn(
-                            "w-[240px] h-[45px] justify-start text-left font-normal",
+                            "w-full lg:w-[240px] h-[45px] justify-start text-left font-normal",
                             !date && "text-muted-foreground"
                         )}
                     >
