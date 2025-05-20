@@ -5,7 +5,7 @@ const Packages=()=>{
     return (
         <div>
             <Banner></Banner>
-            <div>
+            <div className="mt-5">
                 <MapBox></MapBox>
             </div>
             <h1 className="text-4xl font-semibold">Working ...</h1>
