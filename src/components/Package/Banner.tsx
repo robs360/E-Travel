@@ -16,7 +16,7 @@ const Banner = () => {
 
             </div>
             <div className='min-h-[300px]'>
-                <div className='max-w-[1100px] p-6 bg-white z-50 lg:absolute left-[15%] mt-4 mx-auto border-2 top-50 shadow-xl rounded-[12px]'>
+                <div className='max-w-[1100px] p-6 bg-white z-50 lg:absolute left-[18%] mt-4 mx-auto border-2 top-50 shadow-xl rounded-[12px]'>
                     <h1 className='font-semibold mb-2'>Top Destination Wth Package</h1>
                     <div className='grid grid-cols-1  md:grid-cols-3 gap-4'>
                         <div className="relative mx-auto w-[340px] group md:w-[250px]  lg:w-[280px] h-[220px] overflow-hidden">

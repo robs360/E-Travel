@@ -1,7 +1,8 @@
+'use client'
 import Link from 'next/link';
 import banner from '../../assets/banner.png';
 import { Button } from '../ui/button';
-
+import { motion } from "framer-motion";
 const Banner = () => {
   const bannerStyle = {
     backgroundImage: `url(${banner.src})`,
@@ -15,7 +16,8 @@ const Banner = () => {
       style={bannerStyle}
       className="flex justify-center items-center w-full h-[380px] md:h-[450px] lg:h-[600px] px-4"
     >
-      <div className="text-center space-y-3 bg-black/40 p-4 rounded-xl">
+      <motion.div  initial={{opacity:0, y:-30}} animate={{opacity:1 ,y:0}}
+        transition={{delay:0.2, duration:0.6}} className="text-center space-y-3 bg-black/40 p-4 rounded-xl">
         <h1 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-wide">
           End-to-End Travel
         </h1>
@@ -30,7 +32,7 @@ const Banner = () => {
         <Link href={'/Bus'}><Button className="text-[16px] md:text-[18px] bg-green-500 hover:bg-green-600 font-semibold mt-3">
           Buy Ticket
         </Button></Link>
-      </div>
+      </motion.div>
     </div>
   );
 };
