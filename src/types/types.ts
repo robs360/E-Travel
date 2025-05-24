@@ -41,6 +41,11 @@ export type ShowHotelDataProps = {
   
 };
 
+export type Tuser={
+  name:string,
+    email:string
+    password:string
+}
 export const hotelDescriptions: string[] = [
   "Luxury beachfront hotel offering panoramic sea views, rooftop dining, infinity pool, spa treatments, and private balconies.",
   "Modern city hotel with fast Wi-Fi, 24/7 concierge, gym, rooftop lounge, conference rooms, and complimentary breakfast daily.",

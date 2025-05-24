@@ -4,10 +4,18 @@ import logo from '../../assets/logo2.jpeg'
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { RegisterUser } from "@/services/user";
+import { useRouter } from "next/navigation";
+
 const RegisterForm = () => {
+    const navigate=useRouter()
     const { register, handleSubmit } = useForm()
-    const onSubmit = (data: any) => {               // 2. create submit function
-        console.log(data);                            // form data will appear here
+    const onSubmit = async (data: any) => {              
+        
+        const result=await RegisterUser(data)
+        if(result.success){
+            navigate.push('/login')
+        }                   
     }
     return (
         <div className="bg-white p-8 rounded-2xl shadow-2xl w-[350px] md:w-[450px] mx-auto mt-16">
