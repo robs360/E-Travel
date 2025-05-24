@@ -15,36 +15,43 @@ const Banner = () => {
             <div className='mt-1 bg-cover h-[200px] md:h-[270px] lg:h-[320px] flex p-3 items-center justify-center' style={bannerStyle}>
 
             </div>
-            <div className='min-h-[300px]'>
-                <div className='max-w-[1100px] p-6 bg-white z-50 lg:absolute left-[18%] mt-4 mx-auto border-2 top-50 shadow-xl rounded-[12px]'>
-                    <h1 className='font-semibold mb-2'>Top Destination Wth Package</h1>
-                    <div className='grid grid-cols-1  md:grid-cols-3 gap-4'>
-                        <div className="relative mx-auto w-[340px] group md:w-[250px]  lg:w-[280px] h-[220px] overflow-hidden">
-                            <Image src={tan} alt="Packages" fill className="object-cover rounded-lg" />
-                            <div className='absolute rounded-lg -top-32 group-hover:top-0 pt-8 transition-all duration-300 group-hover:bg-black/50 group-hover:h-[220px]'>
-                                <h1 className='font-semibold text-white text-center'>Tanguar Haor</h1>
-                                <p className='font-medium text-white text-center'>BDT:4200 Tk</p>
-                                <p className='text-center text-white text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div className="relative inset-0 mx-auto w-[340px] group md:w-[250px]  lg:w-[280px] h-[220px] overflow-hidden">
-                            <Image src={ban} alt="Packages" fill className="object-cover rounded-lg" />
-                            <div className='absolute rounded-lg -top-32 group-hover:top-0 pt-8 transition-all duration-300 group-hover:bg-black/50 group-hover:h-[220px]'>
-                                <h1 className='font-semibold text-white text-center'>Bandarban Tour</h1>
-                                <p className='font-medium text-white text-center'>BDT:3300 Tk</p>
-                                <p className='text-center text-white text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div className="relative mx-auto w-[340px] group md:w-[250px]  lg:w-[280px] h-[220px] overflow-hidden">
-                            <Image src={cox} alt="Packages" fill className="object-cover rounded-lg" />
-                            <div className='absolute rounded-lg -top-32 group-hover:top-0 pt-8 transition-all duration-300 bg-neutral-50 group-hover:bg-black/50 group-hover:h-[220px]'>
-                                <h1 className='font-semibold text-white text-center'>Cox's Bazar</h1>
-                                <p className='font-medium text-white text-center'>BDT:2000 Tk</p>
-                                <p className='text-center text-white text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                    </div>
+            <h1 className='text-3xl mt-14 font-semibold text-green-500 text-center'>
+            <span className='text-xl font-semibold text-orange-300'>Express your personality</span> <br /> 
+
+        Take a Break at Park
+            </h1>
+            <div className='grid grid-cols-3 max-w-[1100px] mx-auto mt-14'>
+                <div className='rounded-md w-[325px] border-2 border-gray-300'>
+                   <img src={tan.src} className='w-full rounded-t-md h-[230px]' alt="" /> 
+                   <div className='p-3 flex flex-col space-y-4'>
+                       <h1 className='font-semibold'>sunamganj tanguar Haur</h1>
+                       <p className='text-gray-400 font-medium'>Travel With Board</p>
+                       <p className='text-gray-400 font-medium'>BDT 3400 per Person</p>
+                       <p className='text-sm'>1 Person 2 day 2 night</p>
+                       <span className='px-2 py-0.5 w-[84px] font-medium bg-green-500 rounded-[10px] text-white'>Package</span>
+                    </div>  
                 </div>
+               <div className='rounded-md w-[325px] border-2 border-gray-300'>
+                   <img src={cox.src} className='w-full rounded-t-md h-[230px]' alt="" /> 
+                   <div className='p-3 flex flex-col space-y-4'>
+                       <h1 className='font-semibold'>sunamganj tanguar Haur</h1>
+                       <p className='text-gray-400 font-medium'>Travel With Board</p>
+                       <p className='text-gray-400 font-medium'>BDT 1400 per Person</p>
+                       <p className='text-sm'>1 Person 2 day 2 night</p>
+                       <span className='px-2 py-0.5 w-[84px] font-medium bg-green-500 rounded-[10px] text-white'>Package</span>
+                    </div>  
+                </div>
+                <div className='rounded-md w-[325px] border-2 border-gray-300'>
+                   <img src={ban.src} className='w-full rounded-t-md h-[230px]' alt="" /> 
+                   <div className='p-3 flex flex-col space-y-4'>
+                       <h1 className='font-semibold'>sunamganj tanguar Haur</h1>
+                       <p className='text-gray-400 font-medium'>Travel With Board</p>
+                       <p className='text-gray-400 font-medium'>BDT 2200 per Person</p>
+                       <p className='text-sm'>1 Person 2 day 2 night</p>
+                       <span className='px-2 py-0.5 w-[84px] font-medium bg-green-500 rounded-[10px] text-white'>Package</span>
+                    </div>  
+                </div>
+                
             </div>
         </div>
     )
