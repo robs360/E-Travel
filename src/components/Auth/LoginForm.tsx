@@ -8,10 +8,27 @@ import { FaFacebook } from "react-icons/fa";
 import google from '../../assets/google.webp'
 import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+
 const LoginForm = () => {
     const { register, handleSubmit } = useForm()
-    const onSubmit = (data: any) => {               // 2. create submit function
-        console.log(data);                            // form data will appear here
+    const router=useRouter()
+    const onSubmit = async (data: any) => {
+        console.log(data);
+        const res = await signIn("credentials", {
+            email: data.email,
+            password: data.password,
+            redirect: false,
+        });
+        if (res?.ok && res.url) {
+            window.location.href = res.url; 
+            router.push('/')
+            toast.success("Login successfully done")
+        } else {
+            
+            console.error("Login failed", res?.error);
+        }
     }
     return (
         <motion.div initial={{ scale: 0, opacity: 0 }}

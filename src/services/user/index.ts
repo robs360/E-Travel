@@ -18,7 +18,7 @@ export const RegisterUser = async (user: Tuser) => {
     }
 }
 
-export const loginUser = async (userData: { emai: string, password: string }) => {
+export const loginUser = async (userData: { email: string, password: string }) => {
     try {
 
         const res = await fetch(`${process.env.api_end_point}api/v1/user/login`, {

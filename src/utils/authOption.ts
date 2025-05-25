@@ -1,6 +1,7 @@
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { loginUser } from "@/services/user";
 export const authOptions = {
 
   providers: [
@@ -14,28 +15,26 @@ export const authOptions = {
     }),
     CredentialsProvider({
 
-      name: "Credentials",
+      name: "credentials",
 
       credentials: {
-     
+        email: { label: "Email", type: "text", placeholder: "john@example.com" },
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
+        const { email, password } = credentials as { email: string; password: string };
+        const res = await loginUser({ email, password })
 
-        const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
-
-        if (user) {
-
-          return user
+        if (res && res.user) {
+          return res.user; // 👈 only return if res.user exists
         } else {
-
-          return null
-
+          return null;
         }
       }
     })
   ],
   pages: {
-    signIn: "/login",      
+    signIn: "/login",
   },
   secret: process.env.NEXTAUTH_SECRET
 }
