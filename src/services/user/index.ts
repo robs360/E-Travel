@@ -35,3 +35,4 @@ export const loginUser = async (userData: { email: string, password: string }) =
         console.log(err)
     }
 }
+

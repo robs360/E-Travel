@@ -21,7 +21,7 @@ const SeatPlan = ({ res }: any) => {
         setBookedTicket(prev => [...prev, seat]);
     };
     return (
-        <div className="flex gap-4  mt-8 min-h-[300px] max-w-[1200px] p-6 mx-auto bg-white rounded-2xl justify-between">
+        <div className="flex flex-col-reverse md:flex-row gap-4  mt-8 min-h-[300px] max-w-[1200px] p-6 mx-auto bg-white rounded-2xl justify-between">
             <div className='max-w-[500px]'>
                 <div className='w-[60px] ml-auto'>
                     <Image src={stearing} alt='' width={50}></Image>
