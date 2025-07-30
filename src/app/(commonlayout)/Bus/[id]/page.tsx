@@ -13,6 +13,7 @@ const BookTicket = async ({params}:{params:Promise<{id:string}>}) => {
          bg-gray-100/50 rounded-3xl border-t-[3px] w-[98%] md:w-[94%] border-green-400">
            <TicketDetails res={res.data}></TicketDetails>
             <SeatPlan res={res.data}></SeatPlan>
+           
         </div>
     )
 }

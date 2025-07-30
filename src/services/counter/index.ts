@@ -1,5 +1,4 @@
 'use server'
-
 export const createCounter = async (counterData: any) => {
     try {
         const res = await fetch(`${process.env.api_end_point}/api/v1/counter/create`, {

@@ -69,20 +69,27 @@ export const hotelDescriptions: string[] = [
   "Mountain retreat with ski-in/ski-out access, hot tubs, fireplace suites, gear rentals, and après-ski lounges."
 ];
 
+import hotel1 from '../assets/find1.jpg'
+import hotel2 from '../assets/find2.jpeg'
+import hotel3 from '../assets/find3.jpeg'
+import hotel4 from '../assets/find4.jpeg'
+import hotel5 from '../assets/find5.jpeg'
+import hotel6 from '../assets/hotel11.jpg'
+import hotel8 from '../assets/hotel12.jpg'
+import hotel9 from '../assets/hotel20.jpg'
+import hotel10 from '../assets/hotel21.jpg'
+import hotel11 from '../assets/hotel24.jpg'
+import photo1 from '../assets/photo1.avif'
+import photo5 from '../assets/photo5.avif'
+import phot2 from '../assets/photo4.avif'
+import phot3 from '../assets/photo2.avif'
+import phot4 from '../assets/photo3.avif'
+
 
 export const imageLink=[
-  'https://i.imgur.com/C2D5i7G.jpeg',
-  "https://i.imgur.com/BlgBpd4.jpeg",
-  "https://i.imgur.com/noZKmh2.jpeg",
-  "https://i.imgur.com/X4Pluai.jpeg",
-  "https://i.imgur.com/4ZKTetm.jpeg",
-  "https://i.imgur.com/ppCm69M.jpeg",
-  "https://i.imgur.com/MmigvHN.jpeg",
-  "https://i.imgur.com/o4vSddP.jpeg",
-  "https://i.imgur.com/zSSVF8b.jpeg",
-  "https://i.imgur.com/zSSVF8b.jpeg",
-  "https://i.imgur.com/cXnxLIq.jpeg",
-  "https://i.imgur.com/ePmBKpD.jpeg",
-  "https://i.imgur.com/3cuvvY4.jpeg",
-  "https://i.imgur.com/yg2V4Uz.jpeg"
+  hotel1, hotel2,hotel3,hotel4,hotel5,hotel6,
+  hotel8,hotel9,hotel10,hotel1,hotel11,hotel4,hotel10,
+  hotel1,hotel5
 ]
+
+export const imagesLink=[phot2,photo1,phot3,phot4,phot2]

@@ -22,11 +22,11 @@ const SeatPlan = ({ res }: any) => {
     };
     return (
         <div className="flex flex-col-reverse md:flex-row gap-4  mt-8 min-h-[300px] max-w-[1200px] p-6 mx-auto bg-white rounded-2xl justify-between">
-            <div className='max-w-[500px]'>
+            <div className='max-w-[500px] mx-auto'>
                 <div className='w-[60px] ml-auto'>
                     <Image src={stearing} alt='' width={50}></Image>
                 </div>
-                <div className="mt-3 flex gap-14">
+                <div className="mt-3 flex gap-14 w-full">
 
                     <div className="grid grid-cols-2 gap-4">
                         {Array.from({ length: 20 }).map((_, index) => {

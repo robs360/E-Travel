@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { loginUser } from "@/services/user";
 export const authOptions = {
-
+  
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -36,5 +36,6 @@ export const authOptions = {
   pages: {
     signIn: "/login",
   },
+  
   secret: process.env.NEXTAUTH_SECRET
 }
