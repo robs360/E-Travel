@@ -3,6 +3,8 @@ import { getTopHotel } from "@/services/TopHotel"
 import { MapPin } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { imageLink } from "../../../src/types/types";
+
 import './style.css'
 const TopHotel = () => {
    const [info, setInfo] = useState([])
@@ -13,6 +15,7 @@ const TopHotel = () => {
       }
       fetchData()
    }, [])
+   
    return (
       <div className="max-w-[1210px] mx-auto">
          <h1 className='uppercase ml-6 text-2xl mb-8 font-semibold mt-6'>Our Most Top Hotel In This Year</h1>
@@ -23,7 +26,7 @@ const TopHotel = () => {
                   return(
                      <div key={index} className="rounded-[6px] border-2 w-full">
                   <Image className="rounded-[6px] mx-auto"
-                     src={item.image} width={295} height={220} alt="Hotel Image">
+                     src={imageLink[index]} width={295} height={220} alt="Hotel Image">
 
                   </Image>
                   <div className="mt-2 p-3 mx-auto">

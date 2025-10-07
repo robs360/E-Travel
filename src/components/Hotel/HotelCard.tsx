@@ -2,7 +2,6 @@ import { MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { hotelDescriptions, imageLink } from "@/types/types";
-import hotel from '../../assets/hotel_image.webp'
 import { Button } from "../ui/button";
 const HotelCard = ({ hotelInfo, counter }: { hotelInfo: any, counter: number }) => {
     return (
